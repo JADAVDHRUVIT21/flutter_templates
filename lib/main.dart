@@ -39,7 +39,11 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
   List<String> _selectedCountries = [];
+
   String _dropdown = 'choose country';
+  List<String> selectedCountry = [];
+  List<String> selectedCountries = [];
+  List<String> selectedValues = [];
 
   String _inputValue = '';
   String _name = '';
@@ -137,12 +141,14 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
 
               SizedBox(height: 10),
+
               SelectInput(
-                label: 'Countries',
-                selectedValues: _selectedCountries,
-                items: ['India', 'USA', 'Canada', 'Australia'],
-                onChanged: (values) => setState(() => _selectedCountries = values),
-              ),
+               label: 'country',
+               items: ['India', 'USA', 'UK'],
+               selectType: 'multi',
+               selectedValues: selectedCountry,
+               onChanged: (vals) => setState(() => selectedCountry = vals), defaultValues: ['Select Country'],
+            ),
 
               // const SizedBox(height: 20),
               // Text('Fruit: $_inputValue'),
