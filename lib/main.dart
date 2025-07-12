@@ -7,6 +7,8 @@ import 'NumberInput.dart';
 import 'PasswoardInput.dart';
 import 'SkeletonLoader.dart';
 import 'TextInput.dart';
+import 'Boolean.dart';
+
 
 
 void main() {
@@ -50,6 +52,8 @@ class _MyHomePageState extends State<MyHomePage> {
   String _passwoard = '';
   String _number = '';
   String _address = '';
+  bool value = false;
+
 
 
   @override
@@ -172,6 +176,19 @@ class _MyHomePageState extends State<MyHomePage> {
                 spacing: 50,
                 isRow: false,// Change this to control ALL gaps
               ),
+              SizedBox(height: 20),
+              BooleanInput(
+                value: value,
+                selectType: 'checkbox', // 'toggleButton,onOffButton,checkbox
+                onChanged: (val) => setState(() => value = val),
+                checkboxInactiveText: 'No',
+                checkboxActiveText: 'Yes',
+                toggleInactiveText: 'Off',
+                toggleActiveText: 'ON',
+                onOffInactiveText: 'Power OFF',
+                onOffActiveText: 'Power ON',
+              ),
+
             ],
           ),
         ),
